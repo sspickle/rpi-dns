@@ -1,5 +1,5 @@
 
-# mastermindg/rpi-dns:latest
+# Fork of mastermindg/rpi-dns 
 
 - [Getting started](#getting-started)
   - [Installation](#installation)

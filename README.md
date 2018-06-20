@@ -65,7 +65,7 @@ You can customize the launch command of BIND server by specifying arguments to `
 docker run --name bind -it --rm \
   --publish 53:53/udp --publish 10000:10000 \
   --volume /srv/docker/bind:/data \
-  rpibind -h
+  rpibind
 ```
 
 ## Persistence

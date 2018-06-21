@@ -4,7 +4,6 @@
 - [Getting started](#getting-started)
   - [Installation](#installation)
   - [Quickstart](#quickstart)
-  - [Command-line arguments](#command-line-arguments)
   - [Persistence](#persistence)
 - [Maintenance](#maintenance)
   - [Upgrading](#upgrading)
@@ -46,7 +45,7 @@ Start BIND using:
 
 ```bash
 docker run --name bind -d --restart=always \
-  --publish 53:53/udp --publish 10000:10000 \
+  --publish 53:53/udp --publish 53:53/tcp --publish 10000:10000 \
   --volume /srv/docker/bind:/data \
   rpibind
 ```
@@ -56,17 +55,6 @@ When the container is started the [Webmin](http://www.webmin.com/) service is al
 The launch of Webmin can be disabled by adding `--env WEBMIN_ENABLED=false` to the `docker run` command. Note that the `ROOT_PASSWORD` parameter has no effect when the launch of Webmin is disabled.
 
 Read the blog post [Deploying a DNS Server using Docker](http://www.damagehead.com/blog/2015/04/28/deploying-a-dns-server-using-docker/) for an example use case.
-
-## Command-line arguments
-
-You can customize the launch command of BIND server by specifying arguments to `named` on the `docker run` command. For example the following command prints the help menu of `named` command:
-
-```bash
-docker run --name bind -it --rm \
-  --publish 53:53/udp --publish 10000:10000 \
-  --volume /srv/docker/bind:/data \
-  rpibind
-```
 
 ## Persistence
 
